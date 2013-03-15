@@ -7,8 +7,12 @@ The Humbug API Python bindings require the following Python libraries:
 
 
 #### Installing
+    
+This package can be installed using `pip`:
 
-This package uses distutils, so you can just run:
+    pip install -e git://github.com/humbughq/python-humbug.git#egg=humbug
+    
+Alternatively, this package uses distutils, so you can just run:
 
     python setup.py install
 
@@ -38,7 +42,14 @@ At the top of the file:
 
     # Make sure the Humbug API distribution's root directory is in sys.path, then:
     import humbug
-    humbug_client = humbug.Client(email="your_email@example.com")
+    humbug_client = humbug.Client()
+    
+If you didn't create a `~/.humbugrc` file, you can instead pass your API key and email as arguments to the Client constructor:
+
+    humbug_client humbug.Client(email="your_email_here@example.com",
+                                api_key="your_secret_api_key")
+                                
+Make sure not to publish any files containing your API key to a public repository!
 
 When you want to send a message:
 
